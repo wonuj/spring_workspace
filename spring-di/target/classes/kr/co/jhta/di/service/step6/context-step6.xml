@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Reporter객체를 생성하도록 정의한다. -->
+	<bean id="reporter" class="kr.co.jhta.di.service.step6.Reporter">
+		<property name="output" ref="pdfOutput"></property>
+	</bean>
+	
+	<!-- PdfOutput 객체를 생성하도록 정의한다. -->
+	<bean id="pdfOutput" class="kr.co.jhta.di.service.PdfOutput"></bean>
+
+	<!-- 생성된 Reporter 객체에 생성된 PdfOutput 객체를 조립시킨다. -->
+	
+</beans>
