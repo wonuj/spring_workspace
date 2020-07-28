@@ -25,7 +25,7 @@ public class Main {
 		// 프로그램 실행에 필요한 객체들끼리 조립
 		// Reporter객체가 의존하는 Output객체류가 Reporter객체에게 제공되는 순간이다.
 		// Reporter객체에게 의존성이 주입되었다.
-		reporter.setOutput(fileOutput);
+		reporter.setOutput(consoleOutput);
 		
 		// 실제 작업 수행
 		reporter.report("인터페이스 의존", "직접 의존하는 객체를 생성하지 않는다.");

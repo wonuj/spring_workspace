@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="kr.co.jhta.dao.BlogDao"> <!-- 매퍼 인터페이스와 매퍼 파일을 연결시키기 -->
+
+	<insert id="insertBlog" parameterType="Blog">
+		insert into spring_blogs
+		(blog_no, blog_title, blog_writer, blog_content)
+		values
+		(spring_blog_seq.nextval, #{title}, #{writer.id}, #{content}) <!-- #{getter 메소드 이름들} -->
+		<!-- 
+			#{writer.id} : blog.getWriter().getId() 
+			blog의 getWriter()를 통해서 User 객체를 얻고 User객체에서 getId()로 id를 얻는다.
+		 -->
+	</insert>
+	
+	<select id="getBlogByNo" parameterType="int" resultType="Blog">
+		select
+			A.blog_no				as no,
+			A.blog_title			as title,
+			A.blog_writer			as "writer.id",		-- User 객체의 id에 값이 저장 
+			B.user_name				as "writer.name",	-- User 객체의 name에 값이 저장
+			B.user_email			as "writer.email",	-- User 객체의 email에 값이 저장
+			A.blog_content			as content,
+			A.blog_likes			as likes,
+			A.blog_comment_counts	as commentCounts,
+			A.blog_created_date		as createDate
+		from
+			spring_blogs A, spring_user B
+		where 
+			A.blog_writer = B.user_id
+			and A.blog_no = #{value}
+	</select>
+</mapper>

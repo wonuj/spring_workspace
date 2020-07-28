@@ -16,7 +16,7 @@ public class Main {
 		
 		
 		// 스프링 컨테이너가 보관중이 객체 꺼내기
-		Reporter reporter = ctx.getBean("reporter", Reporter.class);
+		Reporter reporter = ctx.getBean("reporter2", Reporter.class);
 		
 		// Reporter객체의 핵심기능 사용하기
 		reporter.report("스프링 컨테이너 활용", 
