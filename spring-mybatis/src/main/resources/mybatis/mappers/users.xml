@@ -56,6 +56,21 @@
 			user_id = #{value}
 	</select>
 	
+	<select id="getUsersByName" parameterType="string" resultType="User">
+		select
+			user_id 		as id,
+			user_name 		as name,
+			user_password 	as password,
+			user_email 		as email,
+			user_created_date as createdDate
+		from
+			spring_users
+		where
+			user_name = #{value}
+		order by
+			user_name asc
+	</select>
+	
 	<!-- 
 		UserDao 인터페이스의
 			void insertUser(User user)에 대응되는 SQL 구문
@@ -66,4 +81,18 @@
 	 	values
 	 	(#{id}, #{name}, #{password}, #{email})
 	 </insert>
+	 
+	 <update id="updateUser" parameterType="User">
+	 	update spring_users
+	 	set
+	 		user_password = #{password}
+	 		user_email = #{email}
+	 	where
+	 		user_id = #{id}
+	 </update>
+	 
+	 <delete id="deleteUserById" parameterType="string">
+	 	delete from spring_users
+	 	where user_id = #{value}
+	 </delete>
 </mapper>
