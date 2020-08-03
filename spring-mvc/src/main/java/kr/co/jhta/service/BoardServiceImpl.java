@@ -27,12 +27,12 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public Board getBoardDetail(long boardNo) {
-		return boardDao.selctBoard(boardNo);
+		return boardDao.selectBoard(boardNo);
 	}
 
 	@Override
 	public void increaseBoardLikes(long boardNo) {
-		Board savedBoard = boardDao.selctBoard(boardNo);
+		Board savedBoard = boardDao.selectBoard(boardNo);
 		savedBoard.setLikes(savedBoard.getLikes() + 1);
 		savedBoard.setUpdatedDate(new Date());
 		
@@ -41,12 +41,12 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public void modifyBoardDetail(Board board) {
-		Board savedBoard = boardDao.selctBoard(board.getNo());
+		Board savedBoard = boardDao.selectBoard(board.getNo());
 		if(savedBoard ==null) {
 			throw new RuntimeException("[" +board.getNo()+"]번 게시글이 없습니다.");
 		}
 		if(!savedBoard.getPassword().equals(board.getPassword())) {
-			throw new RuntimeException("비밀번호가 일치하지 않습ㄴㅣ다." );
+			throw new RuntimeException("비밀번호가 일치하지 않습니다." );
 		}
 		
 		savedBoard.setTitle(board.getTitle());
@@ -59,7 +59,7 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public void deleteBoard(long boardNo, String passoword) {
-		Board savedBoard = boardDao.selctBoard(boardNo);
+		Board savedBoard = boardDao.selectBoard(boardNo);
 		if(savedBoard == null) {
 			throw new RuntimeException("["+boardNo+"]번 게시글이 없습니다."); 
 		}

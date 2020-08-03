@@ -3,7 +3,7 @@ package kr.co.jhta.vo;
 import java.util.Date;
 
 public class Board {
-
+	
 	private long no;
 	private String title;
 	private String writer;
@@ -16,7 +16,7 @@ public class Board {
 	private Date updatedDate;
 	private Date deletedDate;
 	
-	public Board() {}
+	public Board () {}
 
 	public long getNo() {
 		return no;
@@ -60,6 +60,13 @@ public class Board {
 
 	public String getFilename() {
 		return filename;
+	}
+	
+	public String getOriginalFilename() {
+		if(filename == null) {
+			return null;
+		}
+		return filename.substring(13);
 	}
 
 	public void setFilename(String filename) {
@@ -105,5 +112,4 @@ public class Board {
 	public void setDeletedDate(Date deletedDate) {
 		this.deletedDate = deletedDate;
 	}
-	
 }
