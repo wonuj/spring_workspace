@@ -11,17 +11,17 @@
 		(#{no}, #{username}, #{tel})
 	</insert>
 	<insert id="insertOrderItem" parameterType="Item">
-		insert into spring_order_items
+		insert into spring_order_products
 		(item_no, order_no, product_no, item_price, item_amount)
 		values
 		(spring_order_seq.nextval, #{orderNo}, #{productNo}, #{price}, #{amount})
 	</insert>
 	
 	<insert id="insertOrderPayment" parameterType="Payment">
-		insert into spring_order_payment
-		(pay_no, pay_type, pay_account,order_no)
+		insert into spring_order_payments
+		(pay_no, pay_type, pay_account, order_no)
 		values
-		(spring_order_seq, #{type}, #{account}, #{orderNo})
+		(spring_order_seq.nextval, #{type}, #{account}, #{orderNo})
 	</insert>
 	<insert id="insertOrderDelivery" parameterType="Delivery">
 		insert into spring_order_delivery

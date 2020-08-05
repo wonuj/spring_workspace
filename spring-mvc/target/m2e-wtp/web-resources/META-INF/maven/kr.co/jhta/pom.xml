@@ -31,6 +31,14 @@
 			<version>1.4</version>
 		</dependency>
 		
+		<!-- 폼 입력값 유효성 검증을 지원하는 라이브러리 -->
+		<dependency>
+		    <groupId>org.hibernate.validator</groupId>
+		    <artifactId>hibernate-validator</artifactId>
+		    <version>6.1.5.Final</version>
+		</dependency>
+		
+		
 		<!-- 스프링의 핵심 라이브러리 의존성 설정 -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -61,7 +69,7 @@
 			<artifactId>spring-tx</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-		<!-- oracle jdbc dricer 의존성 설정 -->
+		<!-- oracle jdbc driver 의존성 설정 -->
 		<dependency>
 			<groupId>com.oracle.jdbc</groupId>
 			<artifactId>ojdbc8</artifactId>

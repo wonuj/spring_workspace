@@ -16,9 +16,9 @@ public class OrderForm {
 	private String payAccount;
 	
 	// 배송관련
-	private String recieverUsername;
-	private String recieverTel;
-	private String recieverAddress;
+	private String receiverUsername;
+	private String receiverTel;
+	private String receiverAddress;
 	
 	
 	public String getProductName() {
@@ -81,29 +81,31 @@ public class OrderForm {
 	public void setPayAccount(String payAccount) {
 		this.payAccount = payAccount;
 	}
-	public String getRecieverUsername() {
-		return recieverUsername;
+	public String getReceiverUsername() {
+		return receiverUsername;
 	}
-	public void setRecieverUsername(String recieverUsername) {
-		this.recieverUsername = recieverUsername;
+	public void setReceiverUsername(String receiverUsername) {
+		this.receiverUsername = receiverUsername;
 	}
-	public String getRecieverTel() {
-		return recieverTel;
+	public String getReceiverTel() {
+		return receiverTel;
 	}
-	public void setRecieverTel(String recieverTel) {
-		this.recieverTel = recieverTel;
+	public void setReceiverTel(String receiverTel) {
+		this.receiverTel = receiverTel;
 	}
-	public String getRecieverAddress() {
-		return recieverAddress;
+	public String getReceiverAddress() {
+		return receiverAddress;
 	}
-	public void setRecieverAddress(String recieverAddress) {
-		this.recieverAddress = recieverAddress;
+	public void setReceiverAddress(String receiverAddress) {
+		this.receiverAddress = receiverAddress;
 	}
 	@Override
 	public String toString() {
-		return "OrderForm [username=" + username + ", usertel=" + usertel + ", productNo=" + productNo + ", amount="
-				+ amount + ", price=" + price + ", payType=" + payType + ", payAccount=" + payAccount
-				+ ", recieverUsername=" + recieverUsername + ", recieverTel=" + recieverTel + ", recieverAddress="
-				+ recieverAddress + "]";
+		return "OrderForm [username=" + username + ", usertel=" + usertel + ", productNo=" + productNo
+				+ ", productName=" + productName + ", productPrice=" + productPrice + ", productDiscountPrice="
+				+ productDiscountPrice + ", amount=" + amount + ", price=" + price + ", payType=" + payType
+				+ ", payAccount=" + payAccount + ", receiverUsername=" + receiverUsername + ", receiverTel="
+				+ receiverTel + ", receiverAddress=" + receiverAddress + "]";
 	}
+	
 }

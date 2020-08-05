@@ -5,7 +5,7 @@ public class Delivery {
 	private int no;
 	private String username;
 	private String tel;
-	private String adderss;
+	private String address;
 	private String satus;
 	private long orderNo;
 	
@@ -35,12 +35,12 @@ public class Delivery {
 		this.tel = tel;
 	}
 
-	public String getAdderss() {
-		return adderss;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setAdderss(String adderss) {
-		this.adderss = adderss;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public String getSatus() {
