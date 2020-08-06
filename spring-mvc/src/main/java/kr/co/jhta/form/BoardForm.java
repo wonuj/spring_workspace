@@ -18,7 +18,6 @@ import org.springframework.web.multipart.MultipartFile;
 //		5. 모든 요청파라미터 값의 저장이 완료되면, 요청핸들러 메소드를 실핸하면서 매개변수로 전달한다.
 public class BoardForm {
 	private String title;
-	private String writer;
 	private String content;
 	private String password;
 	private MultipartFile upfile; 
@@ -30,12 +29,6 @@ public class BoardForm {
 	}
 	public void setTitle(String title) {
 		this.title = title;
-	}
-	public String getWriter() {
-		return writer;
-	}
-	public void setWriter(String writer) {
-		this.writer = writer;
 	}
 	public String getContent() {
 		return content;
