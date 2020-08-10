@@ -161,9 +161,10 @@ public class BoardController {
 	// * <form /> 태그의 입력필드 개수가 많을 때 반복적인 코드를 효과적으로 줄일 수 있다.
 	public String addBoard(BoardForm boardForm, User user) throws FileNotFoundException, IOException {
 		
-		if (user == null) {
-			return "redirect:/signin.do?error=deny";
-		}
+		// ##인터셉터에서 페이지별 접속 권한을 체크한 경우 해당 코드는 필요없다.
+//		if(user == null) {
+//			return "redirect:/signin.do?error=deny";
+//		}
 		
 		Board board = new Board();
 		board.setWriter(user.getId());

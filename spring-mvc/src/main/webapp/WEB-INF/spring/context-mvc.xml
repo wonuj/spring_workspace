@@ -30,6 +30,25 @@
 	</mvc:annotation-driven>
 	
 	<!-- 
+		모든 URL 요청에 대해서 2개의 인터셉터가 실행되도록 설정하기
+		순서대로 동작한다. 앞에서 false를 반환하는 경우 뒤에 있는 인터페이스는 동작하지 않는다.
+	 -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<mvc:exclude-mapping path="/json/**"/>
+			<mvc:exclude-mapping path="/rest/**"/>
+			<ref bean="authenticationInterceptor"/>
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<mvc:exclude-mapping path="/json/**"/>
+			<mvc:exclude-mapping path="/rest/**"/>
+			<ref bean="authorizationInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
+	<!-- 
 		* <mvc:view-resolvers />태그에는 다양한 ViewResolver관련 설정을 포함할 수 있다.
 		* <mvc:jsp prefix="" suffix="" />은 뷰템플릿(모델의 데이터가 표현되는 곳)이 
 		  jsp일 때 사용되는 태그다.
